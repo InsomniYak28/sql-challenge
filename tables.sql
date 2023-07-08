@@ -10,7 +10,7 @@ CREATE TABLE titles(
 
 CREATE TABLE employees(
     emp_no INTEGER NOT NULL,
-    title_id VARCHAR(5) NOT NULL,
+    emp_title_id VARCHAR(5) NOT NULL,
     birth_date DATE,
     first_name VARCHAR(25),
     last_name VARCHAR(25),
@@ -38,3 +38,6 @@ CREATE TABLE salaries(
     salary INTEGER,
     CONSTRAINT salaries_pkey PRIMARY KEY (emp_no),
     CONSTRAINT fk_salaries_employees FOREIGN KEY (emp_no) REFERENCES employees (emp_no));
+	
+--I altered the title_id column name in employees to match title_id in titles
+ ALTER TABLE emplyees RENAME COLUMN emp_title_id TO title_id;
