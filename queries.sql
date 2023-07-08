@@ -13,7 +13,9 @@ where hire_date between '1986-01-01' and '1986-12-30';
 select departments.dept_no, departments.dept_name, employees.emp_no, employees.first_name, employees.last_name
 from dept_manager
 inner join employees on employees.emp_no = dept_manager.emp_no
-inner join departments on dept_manager.dept_no = departments.dept_no;
+inner join departments on dept_manager.dept_no = departments.dept_no
+inner join titles on titles.title_id = employees.title_id
+where title = 'Manager';
 
 --each employee's number, dept_no, dept_name, first/last name
 select dept_emp.emp_no, dept_emp.dept_no, departments.dept_name, employees.first_name, employees.last_name
